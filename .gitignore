@@ -1,0 +1,33 @@
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.*
+
+# Terraform cache
+.terraform/
+.terraform.lock.hcl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+crash.log
+
+# Environment files
+.env
+.env.local
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# OS
+.DS_Store
+Thumbs.db
