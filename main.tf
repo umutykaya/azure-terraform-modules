@@ -19,3 +19,12 @@ module "key_vault" {
   purge_protection_enabled = var.purge_protection_enabled
   tags                     = var.tags
 }
+
+module "databricks" {
+  source = "./modules/databricks_workspace"
+
+  name                = "db-${var.project_name}-${var.environment}"
+  resource_group_name = module.resource_group.name
+  location            = module.resource_group.location
+  tags                = var.tags
+}
