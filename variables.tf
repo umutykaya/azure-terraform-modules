@@ -1,26 +1,44 @@
-variable "location" {
-  description = "Azure region to deploy resources."
+variable "purge_protection_enabled" {
+  description = "Enable purge protection on Key Vault."
+  type        = bool
+  default     = false
+}
+
+variable "resource_group_name" {
   type        = string
-  default     = "westeurope"
+  description = "The name of the resource group where the data platform resources will be created."
+  default     = "rg-mad-platform"
+}
+
+variable "location" {
+  type        = string
+  description = "The location of the resource group where the data platform resources will be created."
+  default     = "westus2"
 }
 
 variable "environment" {
-  description = "Deployment environment (e.g. dev, staging, prod)."
   type        = string
+  description = "The environment for which the data platform resources will be created."
   default     = "dev"
 }
 
 variable "project_name" {
-  description = "Short project name used for resource naming."
   type        = string
-  default     = "myproject"
+  description = "The name of the project for which the data platform resources will be created."
+  default     = "mad-platform"
+}
+
+variable "subscription_id" {
+  type        = string
+  description = "The subscription ID for the Azure account."
+  default     = "98014c53-83b7-4bfb-a4a4-2e31b0f22465"
 }
 
 variable "tags" {
-  description = "Common tags applied to all resources."
+  description = "Common tags for all resources."
   type        = map(string)
   default = {
     environment = "dev"
-    managed_by  = "terraform"
+    project     = "mad-platform"
   }
 }

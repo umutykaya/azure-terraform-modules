@@ -83,7 +83,7 @@ module "data_platform" {
   location            = "eastus"
   environment         = "dev"
   project_name        = "mycompany"
-  
+
   enable_data_lake      = true
   enable_data_warehouse = false
   enable_data_factory   = false
@@ -251,6 +251,57 @@ For issues or questions, please create an issue in the repository.
 
 ---
 
-**Last Updated**: June 2026  
-**Terraform Version**: >= 1.3  
+**Last Updated**: June 2026
+**Terraform Version**: >= 1.3
 **Azure Provider**: >= 4.0
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+| ---- | ------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9, < 2.0 |
+| <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | ~> 2.4 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.117, < 5.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.5 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.9 |
+
+## Providers
+
+| Name | Version |
+| ---- | ------- |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.77.0 |
+
+## Modules
+
+| Name | Source | Version |
+| ---- | ------ | ------- |
+| <a name="module_key_vault"></a> [key\_vault](#module\_key\_vault) | ./modules/key_vault | n/a |
+| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | ./modules/resource_group | n/a |
+
+## Resources
+
+| Name | Type |
+| ---- | ---- |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+| ---- | ----------- | ---- | ------- | :------: |
+| <a name="input_environment"></a> [environment](#input\_environment) | The environment for which the data platform resources will be created. | `string` | `"dev"` | no |
+| <a name="input_location"></a> [location](#input\_location) | The location of the resource group where the data platform resources will be created. | `string` | `"westus2"` | no |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the project for which the data platform resources will be created. | `string` | `"mad-platform"` | no |
+| <a name="input_purge_protection_enabled"></a> [purge\_protection\_enabled](#input\_purge\_protection\_enabled) | Enable purge protection on Key Vault. | `bool` | `false` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group where the data platform resources will be created. | `string` | `"rg-mad-platform"` | no |
+| <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | The subscription ID for the Azure account. | `string` | `"98014c53-83b7-4bfb-a4a4-2e31b0f22465"` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Common tags for all resources. | `map(string)` | <pre>{<br/>  "environment": "dev",<br/>  "project": "mad-platform"<br/>}</pre> | no |
+
+## Outputs
+
+| Name | Description |
+| ---- | ----------- |
+| <a name="output_key_vault_name"></a> [key\_vault\_name](#output\_key\_vault\_name) | n/a |
+| <a name="output_key_vault_uri"></a> [key\_vault\_uri](#output\_key\_vault\_uri) | n/a |
+| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | n/a |
+<!-- END_TF_DOCS -->

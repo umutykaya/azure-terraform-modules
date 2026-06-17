@@ -21,8 +21,8 @@ crash.log
 # Environment files
 .env
 .env.local
-*.tfvars
-*.tfvars.json
+# *.tfvars
+# *.tfvars.json
 override.tf
 override.tf.json
 *_override.tf
