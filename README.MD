@@ -168,6 +168,12 @@ pre-commit run --all-files
 ### Running Terraform Validation Locally
 
 ```bash
+terraform init
+terraform validate
+terraform plan -var-file=terraform.tfvars
+```
+
+```bash
 terraform fmt -recursive
 terraform validate
 tflint
